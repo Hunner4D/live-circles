@@ -1,5 +1,8 @@
 var io = require('socket.io')();
 
+// Object to track connected sockets
+var players = {};
+
 // Listen for new connections from clients (socket)
 io.on('connection', function(socket) {
 
@@ -11,7 +14,13 @@ io.on('connection', function(socket) {
     io.emit('clear-display');
   });
 
-
+  socket.on('register-player', function(initials) {
+    players[socket.id] = initials;
+    io.emit(
+      'update-player-list',
+      Object.values(players)
+    );
+  });
 
 
 

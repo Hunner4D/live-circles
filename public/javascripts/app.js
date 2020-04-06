@@ -1,10 +1,14 @@
 var socket = io();
-console.log(socket);
+
+socket.on('add-circle', function(data) {
+  console.log(data);
+});
 
 var circles = document.getElementById('circles');
 var initials = '';
 
 circles.addEventListener('click', function(evt) {
+  // we'll emit the add-circle message
   addCircle(evt.clientX, evt.clientY, randomBetween(10,125), getRandomRGBA());
 });
 

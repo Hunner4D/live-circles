@@ -9,7 +9,7 @@ socket.on('clear-display', function() {
 });
 
 socket.on('update-player-list', function(initials) {
-  var playerList = initials.map(initial => `<li>{initial}</li>`);
+  var playerList = initials.map(initial => `<li>${initial}</li>`);
   players.innerHTML = playerList.join('');
 });
 

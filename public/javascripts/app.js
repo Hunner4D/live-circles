@@ -8,7 +8,13 @@ socket.on('clear-display', function() {
   circles.innerHTML = '';
 });
 
+socket.on('update-player-list', function(initials) {
+  var playerList = initials.map(initial => `<li>{initial}</li>`);
+  players.innerHTML = playerList.join('');
+});
+
 var circles = document.getElementById('circles');
+var players = document.getElementById('players');
 var initials = '';
 
 circles.addEventListener('click', function(evt) {
@@ -29,6 +35,8 @@ document.getElementsByTagName('button')[0].addEventListener('click', function() 
 do {
   initials = getInitials();
 } while (initials.length < 2 || initials.length > 3);
+
+socket.emit('register-player', initials);
 
 function getInitials() {
   var input = prompt("Please enter your initials");

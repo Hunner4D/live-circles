@@ -1,5 +1,3 @@
-#### To sync your code with the latest commit:
+##Link to Deployed App:
 
-`git fetch --all`
-
-`git reset --hard origin/master`
+https://limitless-meadow-45509.herokuapp.com/

@@ -21,8 +21,14 @@ io.on('connection', function(socket) {
       Object.values(players)
     );
   });
-
-
+  
+  socket.on('disconnect', function() {
+    delete players[socket.id];
+    io.emit(
+      'update-player-list',
+      Object.values(players)
+    );
+  });
 
 });
 

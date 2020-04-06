@@ -4,6 +4,10 @@ socket.on('add-circle', function(data) {
   addCircle(data);
 });
 
+socket.on('clear-display', function() {
+  circles.innerHTML = '';
+});
+
 var circles = document.getElementById('circles');
 var initials = '';
 
@@ -19,7 +23,7 @@ circles.addEventListener('click', function(evt) {
 });
 
 document.getElementsByTagName('button')[0].addEventListener('click', function() {
-  circles.innerHTML = '';
+  socket.emit('clear-display');
 });
 
 do {

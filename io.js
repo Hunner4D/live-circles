@@ -7,6 +7,10 @@ io.on('connection', function(socket) {
     io.emit('add-circle', data);
   });
 
+  socket.on('clear-display', function() {
+    io.emit('clear-display');
+  });
+
 
 
 

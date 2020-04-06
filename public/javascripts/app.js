@@ -1,3 +1,6 @@
+var socket = io();
+console.log(socket);
+
 var circles = document.getElementById('circles');
 var initials = '';
 
